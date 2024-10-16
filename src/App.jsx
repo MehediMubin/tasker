@@ -1,8 +1,14 @@
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+
 const App = () => {
    return (
-      <div>
-         <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </div>
+      <>
+         <Header />
+         <Hero />
+         <Footer />
+      </>
    );
 };
 
