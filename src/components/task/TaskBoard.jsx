@@ -17,16 +17,22 @@ const TaskBoard = () => {
    const [tasks, setTasks] = useState([defaultTask]);
    const [showModal, setShowModal] = useState(false);
 
-   const handleAddTask = () => {
-      setShowModal(!showModal);
+   const handleAddTask = (newTask) => {
+      setTasks([...tasks, newTask]);
    };
+
    return (
       <section className="mb-20" id="tasks">
-         {showModal && <AddTaskModal />}
+         {showModal && (
+            <AddTaskModal
+               onSave={handleAddTask}
+               onClose={() => setShowModal(false)}
+            />
+         )}
          <div className="container">
             <SearchTask />
             <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
-               <TaskActions onAddTask={handleAddTask} />
+               <TaskActions onAddTask={() => setShowModal(true)} />
                <TaskList tasks={tasks} />
             </div>
          </div>
