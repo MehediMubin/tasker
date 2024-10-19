@@ -13,6 +13,7 @@ const AddTaskModal = ({ onSave, onClose }) => {
    const handleChange = (e) => {
       const name = e.target.name;
       let value = e.target.value;
+      console.log("random");
 
       if (name == "tags") {
          value = value.split(",");
